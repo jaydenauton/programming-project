@@ -5,7 +5,7 @@
     <script>
         var canvas, canvasContext;
 
-            window.onload = function() {
+        window.onload = function() {
             canvas = document.getElementById('gameCanvas');
             canvasContext = canvas.getContext('2d');
 
@@ -18,18 +18,31 @@
         var playerYpos = 0;
         var playerXpos = 0;
         var playerSIZE = 60;
-        var XSpeed = 5
-        var YSpeed = 5
-        
-        
-        
+        var XSpeed = 5;
+        var YSpeed = 5;
+
+
+
         var bg = new Image();
         bg.src = 'bg.png';
 
         function mainloop() {
             drawImgs(bg, 0, 0, canvas.width, canvas.height); // bg
             drawImgs(fc, playerXpos, playerYpos, playerSIZE, playerSIZE);
+            
+            fcMove();
         }
+
+        function fcMove() {
+            playerYpos += YSpeed;
+            YSpeed+= 0.1;
+
+        }
+
+
+
+
+
 
         function colorRect(x, y, w, h, c) {
             canvasContext.fillStyle = c;
@@ -40,10 +53,5 @@
             canvasContext.drawImage(src, x, y, w, h);
         }
 
-
-
-    
-    
-    
     </script>
 </body>
